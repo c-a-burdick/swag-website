@@ -1,0 +1,722 @@
+/* ============================================================
+   SWAG LLC — Stylesheet
+   Palette derived from SWAG brand identity (light logo version)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;900&display=swap');
+
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --navy:         #04173A;   /* primary text, headings, nav */
+  --navy-deep:    #02102A;   /* darkest navy — nav bar, page headers */
+  --navy-mid:     #0B2452;   /* hover states on dark surfaces */
+  --red:          #AB1C1E;   /* primary accent — target red */
+  --red-light:    #C53436;   /* hover state */
+  --white:        #FFFFFF;
+  --paper:        #F7F6F3;   /* warm off-white page background */
+  --surface:      #FFFFFF;   /* card backgrounds */
+  --muted:        #5C6779;   /* body / muted text on light surfaces */
+  --muted-light:  #8A93A3;   /* lighter muted, captions */
+  --border:       #E3E1DC;   /* hairline borders on light surfaces */
+}
+
+/* ── RESET ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: var(--paper);
+  color: var(--navy);
+  min-height: 100vh;
+  font-weight: 400;
+}
+
+/* ── NAVIGATION ──────────────────────────────────────────── */
+nav {
+  background: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 66px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--red);
+}
+
+.nav-logo {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 1.45rem;
+  color: var(--white);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-logo span { color: var(--red-light); }
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0 1rem;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links li a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+.nav-links li a.active {
+  color: var(--white);
+  border-bottom: 2px solid var(--red);
+  background: rgba(171,28,30,0.12);
+}
+
+.nav-logo-mark {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nav-logo-mark svg {
+  display: block;
+}
+
+.nav-links li a.nav-donate {
+  background: var(--red);
+  color: var(--white);
+  font-weight: 800;
+}
+
+.nav-links li a.nav-donate:hover {
+  background: var(--red-light);
+  color: var(--white);
+}
+
+.nav-links li a.nav-donate.active {
+  background: var(--red-light);
+  border-bottom: 2px solid var(--white);
+}
+
+/* ── HERO ────────────────────────────────────────────────── */
+.hero {
+  background: var(--navy-deep);
+  padding: 6rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle concentric-ring echo of the SWAG target logo */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(171,28,30,0.18);
+  top: 50%;
+  right: -180px;
+  transform: translateY(-50%);
+}
+
+.hero::before {
+  width: 540px; height: 540px;
+}
+
+.hero::after {
+  width: 360px; height: 360px;
+  border-color: rgba(171,28,30,0.26);
+  right: -100px;
+}
+
+.hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red-light);
+  margin-bottom: 1.4rem;
+}
+
+.hero h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.6rem;
+  color: var(--white);
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--red-light);
+}
+
+.hero-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.78);
+  max-width: 540px;
+  margin-bottom: 2.6rem;
+  letter-spacing: 0.02em;
+}
+
+/* ── BUTTONS ─────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.2rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn:hover {
+  background: var(--red-light);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.85);
+  margin-left: 0.8rem;
+}
+
+.btn-outline:hover {
+  border-color: var(--white);
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ── STATS BAR ───────────────────────────────────────────── */
+.stats-bar {
+  background: var(--red);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  padding: 1.8rem 3rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.22);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.8);
+  margin-top: 0.35rem;
+}
+
+.stats-bar h2.stat-item {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+}
+
+/* ── GENERIC SECTION ─────────────────────────────────────── */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4.5rem 2rem;
+}
+
+.section-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.6rem;
+}
+
+.section h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--navy);
+  margin-bottom: 1.4rem;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.section p {
+  color: var(--muted);
+  line-height: 1.85;
+  font-size: 0.95rem;
+  font-weight: 400;
+  max-width: 700px;
+  margin-bottom: 1rem;
+}
+
+/* ── PILLARS ─────────────────────────────────────────────── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.pillar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--red);
+  padding: 2rem 1.6rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.pillar:hover {
+  box-shadow: 0 8px 24px rgba(4,23,58,0.08);
+  transform: translateY(-2px);
+}
+
+.pillar-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.pillar h3 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pillar p {
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* ── PAGE HEADER BAND ────────────────────────────────────── */
+.page-header {
+  background: var(--navy-deep);
+  padding: 4rem 2rem 3.5rem;
+  border-bottom: 2px solid var(--red);
+}
+
+.page-header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.page-header .section-eyebrow { color: var(--red-light); }
+
+.page-header h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  margin-top: 0.5rem;
+  color: var(--white);
+}
+
+.page-header p {
+  color: rgba(255,255,255,0.72);
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 560px;
+  letter-spacing: 0.01em;
+}
+
+/* ── BOARD CARDS ─────────────────────────────────────────── */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.board-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.board-card:hover {
+  box-shadow: 0 8px 24px rgba(4,23,58,0.08);
+  transform: translateY(-2px);
+}
+
+.board-card-accent {
+  height: 3px;
+  background: var(--border);
+}
+
+.board-card-accent.gold { background: var(--red); }
+
+.board-card-body { padding: 1.8rem; }
+
+.board-initials {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+
+.board-name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.board-title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0.3rem 0 1rem;
+}
+
+.board-bio {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+/* ── COMING SOON ─────────────────────────────────────────── */
+.coming-soon-wrap {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.cs-badge {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.coming-soon-wrap h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  margin-bottom: 1.4rem;
+}
+
+.coming-soon-wrap p {
+  color: var(--muted);
+  max-width: 460px;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.contact-info {
+  font-size: 0.9rem;
+  color: var(--navy);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-top: 0.5rem;
+}
+
+/* ── TIMELINE ────────────────────────────────────────────── */
+.timeline {
+  margin-top: 3rem;
+  border-left: 2px solid var(--red);
+  padding-left: 2.2rem;
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 2.8rem;
+}
+
+.tl-item::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  position: absolute;
+  left: -2.72rem;
+  top: 0.4rem;
+}
+
+.tl-year {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.tl-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.tl-body {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.8;
+  font-weight: 400;
+  max-width: 620px;
+}
+
+/* ── RESOURCE & PARTNER CARDS ────────────────────────────── */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.resource-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.resource-card:hover {
+  box-shadow: 0 8px 24px rgba(4,23,58,0.08);
+  transform: translateY(-3px);
+  border-color: var(--red);
+}
+
+.rc-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.rc-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.rc-body {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.75;
+  flex: 1;
+  font-weight: 400;
+}
+
+.rc-link {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--red);
+  text-decoration: none;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  border-bottom: 1px solid rgba(171,28,30,0.4);
+  padding-bottom: 1px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.rc-link:hover {
+  color: var(--red-light);
+  border-bottom-color: var(--red-light);
+}
+
+/* ── PARTNER CARDS ───────────────────────────────────────── */
+.partner-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.partner-card:hover {
+  box-shadow: 0 8px 24px rgba(4,23,58,0.08);
+  transform: translateY(-2px);
+}
+
+.partner-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--navy);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.partner-name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.partner-type {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0.2rem 0 0.6rem;
+}
+
+.partner-desc {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer {
+  background: var(--navy-deep);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin-top: 4rem;
+}
+
+footer strong {
+  color: var(--white);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: var(--red-light);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav-links li a {
+    font-size: 0.62rem;
+    padding: 0 0.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .stat-item { padding: 1.2rem 1.4rem; }
+  .stat-num  { font-size: 2rem; }
+
+  .btn-outline { margin-left: 0; margin-top: 0.6rem; }
+}
